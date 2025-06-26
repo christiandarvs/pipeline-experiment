@@ -5,7 +5,11 @@ pipeline {
             stage('Build') {
                 steps{
                     echo "Building Phase"
+                    sh "pip install -r requirements.txt"
                     sh "python my_os.py"
+                    sh "python get_ocr.py"
+                    sh "get_status_code.py"
+
                 }
             }       
             stage('Test') {
