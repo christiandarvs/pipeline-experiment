@@ -12,8 +12,9 @@ pipeline {
                     echo "Building Phase"
                     sh "pip install --no-cache-dir -r requirements.txt"
                     sh "python my_os.py"
+                    sh "apk add --no-cache tesseract-ocr"
                     sh "python get_ocr.py"
-                    sh "get_status_code.py"
+                    sh "python get_status_code.py"
 
                 }
             }       
